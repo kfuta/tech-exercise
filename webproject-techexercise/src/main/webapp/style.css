@@ -1,0 +1,53 @@
+body {
+	background-color: #F1FAEE;
+}
+.center {
+	margin-left: auto;
+    margin-right: auto
+}  
+table {	
+    border-collapse: collapse;
+    width: 80%;
+}
+th, td {border-bottom: 1px solid;		
+     border-color: #1D3557;
+     padding: 5px;
+     text-align: left;
+}
+th {
+	background-color: #A8DADC;
+}		
+tr:hover {
+	background-color: #E63946;
+}
+header {
+	background-color: #1D3557;	
+    color: #E63946;
+    font-family: Trebuchet MS;
+    text-align:center;
+    padding:5px;
+}
+nav {		
+    line-height:30px;
+    background-color: #457B9D;
+    width:100px;
+    height:700px;
+    float:left;
+    padding:5px;
+}
+.otherLink {
+	color: #457B9D;
+}		
+.mainNav {		
+    color: #F1FAEE;
+}
+section {
+    width:700px;
+    float:left;
+    padding:10px;	 	 
+}	
+div {
+	padding-top: 10px;
+  	padding-bottom: 10px;
+  	padding-left: 150px;
+}

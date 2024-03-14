@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>Reading Tracker</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<h1 align=center>&#128218; Reading Tracker &#128218;</h1>
+</header>
+
+<nav>
+<a href=/webproject-techexercise/Library class=mainNav>Library</a> <br>
+<a href=/webproject-techexercise/Shelves class=mainNav>Shelves</a> <br>
+<a href=/webproject-techexercise/Activity class=mainNav>Activity</a> <br><br>        
+</nav>
+
+<h2 align=center>Add to Library</h2>
+<section>
+	<form action="AddToLibrary" method="POST">
+		Add a book to your library. All fields are required. <br /><br />
+		Book Title (less than 100 characters): <input type="text" name="titleInput" maxlength="100" required> <br />
+		Book Author (less than 50 characters): <input type="text" name="authorInput" maxlength="50" required> <br />
+		Genre (less than 50 characters): <input type="text" name="genreInput" maxlength="50" required> <br />
+		Year First Published (positive integer): <input type="number" name="yearFirstPublishedInput" maxlength="10" min="1" required> <br />
+		Book Page Count (positive integer): <input type="number" name="pageCountInput" maxlength="5" min="1" required> <br /><br />
+		
+		<input type="submit" value="Add to Library" />
+	</form>
+	
+</section>
+</body>
+</html>
