@@ -11,11 +11,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/Library")
-public class Library extends HttpServlet {
+@WebServlet("/Activity")
+public class Activity extends HttpServlet {
    private static final long serialVersionUID = 1L;
 
-   public Library () {
+   public Activity () {
       super();
    }
 
@@ -28,7 +28,7 @@ public class Library extends HttpServlet {
 	  response.setContentType("text/html");
       PrintWriter out = response.getWriter();
       String title = "Reading Tracker";
-      String tableName1 = "Your Library";
+      String tableName1 = "Your Activity";
       String docType = "<!doctype html public \"-//w3c//dtd html 4.0 transitional//en\">\n"; 
       out.println(docType + "<html>\n" + "<head><title>" + title + "</title>\n"); // start of head; start and end of title
       out.println("<style>\n" // start of style
@@ -67,8 +67,8 @@ public class Library extends HttpServlet {
             + "<a href=/webproject-techexercise/Activity>Activity</a> <br> </nav>"
             + "<h2 align=\"center\">" + tableName1 + "</h2>\n");	// first table name
       out.println("<table class=\"center\"> <tr> <th style=\"width:20%\">Book Title</th> "	// first table
-      		+ "<th style=\"width:20%\">Book Author</th> <th style=\"width:20%\">Genre</th> "
-      		+ "<th style=\"width:20%\">Year First Published</th> <th style=\"width:20%\">Book Page Count</th></tr>");
+      		+ "<th style=\"width:20%\">Book Author</th> <th style=\"width:20%\">Date Started</th> "
+      		+ "<th style=\"width:20%\">Activity Date</th> <th style=\"width:20%\">Pages Read</th></tr>");
 
       
       Connection connection = null;
@@ -79,22 +79,22 @@ public class Library extends HttpServlet {
          connection = DBConnectionFutakami.connection;	
 
          // print books table
-         String selectSQL = "SELECT * FROM books ORDER By title";
+         String selectSQL = "SELECT * FROM readingActivity ORDER By activityId DESC";
          preparedStatement = connection.prepareStatement(selectSQL);
          ResultSet rs = preparedStatement.executeQuery();
 
          while (rs.next()) {
-            String bookTitle = rs.getString("title").trim();
-            String bookAuthor = rs.getString("author").trim();
-            String bookGenre = rs.getString("genre").trim();
-            int bookYearFirstPublished = rs.getInt("yearFirstPublished");
-            int bookPageCt = rs.getInt("pageCt");
+            String bookTitle = rs.getString("titleFk2").trim();
+            String bookAuthor = rs.getString("authorFk2").trim();
+            String bookDateStarted = rs.getString("dateStartedFk").trim();
+            String bookActivityDate = rs.getString("activityDate").trim();
+            int bookPagesRead = rs.getInt("pagesRead");
 
             out.println("<tr><td>" + bookTitle + "</td>");
             out.println("<td>" + bookAuthor + "</td>");
-            out.println("<td>" + bookGenre + "</td>");
-            out.println("<td>" + bookYearFirstPublished + "</td>");
-            out.println("<td>" + bookPageCt + "</td></tr>");
+            out.println("<td>" + bookDateStarted + "</td>");
+            out.println("<td>" + bookActivityDate + "</td>");
+            out.println("<td>" + bookPagesRead + "</td></tr>");
          }
          out.println("</table>");
          rs.close();

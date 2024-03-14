@@ -65,7 +65,8 @@ public class Shelves extends HttpServlet {
             + "<body>\n" 	// start of body
             + "<header><h1 align=\"center\">" + title + "</h1></header>\n"	// first header
             + "<nav> <a href=/webproject-techexercise/Library>Library</a> <br>"	// navigation links; remember to change to 4830- when you deploy
-            + "<a href=/webproject-techexercise/Shelves>Shelves</a> <br> </nav>");
+            + "<a href=/webproject-techexercise/Shelves>Shelves</a> <br> "
+            + "<a href=/webproject-techexercise/Activity>Activity</a> <br> </nav>");
 
      
       Connection connection = null;
