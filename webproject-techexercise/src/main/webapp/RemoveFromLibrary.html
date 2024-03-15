@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>Reading Tracker</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<h1 align=center>&#128218; Reading Tracker &#128218;</h1>
+</header>
+
+<nav>
+<a href=/webproject-techexercise/Library class=mainNav>Library</a> <br>
+<a href=/webproject-techexercise/Shelves class=mainNav>Shelves</a> <br>
+<a href=/webproject-techexercise/Activity class=mainNav>Activity</a> <br><br>        
+</nav>
+
+<h2 align=center>Remove from Library</h2>
+<section>
+	<form action="RemoveFromLibrary" method="POST">
+		Remove a book from your library. All fields are required. <em>Note that you cannot remove a book from your library unless all activities and shelf instances associated with the book are removed first.</em><br /><br />
+		<label for="titleInput">Book Title (less than 100 characters): </label>
+			<input type="text" name="titleInput" maxlength="100" required> <br />
+		<label for="authorInput">Book Author (less than 50 characters):</label>
+			<input type="text" name="authorInput" maxlength="50" required> <br /><br />
+		
+		<input type="submit" value="Remove from Library" />
+	</form>
+</section>
+</body>
+</html>

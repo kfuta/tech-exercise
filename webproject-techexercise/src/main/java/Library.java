@@ -40,7 +40,7 @@ public class Library extends HttpServlet {
             + "<a href=/webproject-techexercise/Activity class=mainNav>Activity</a> <br></nav>");
       out.println("<div align=\"center\"><a href=/webproject-techexercise/AddToLibrary.html class=otherLink>Add to Library</a>" // other links
       		+ "&emsp;" + "<a href=/webproject-techexercise/FIX.html class=otherLink>Edit Library</a>" + "&emsp;"
-      		+ "<a href=/webproject-techexercise/FIX.html class=otherLink>Remove from Library</a></div>");
+      		+ "<a href=/webproject-techexercise/RemoveFromLibrary.html class=otherLink>Remove from Library</a></div>");
       out.println("<h2 align=\"center\">" + tableName1 + "</h2>\n");	// first table name
 
       out.println("<table class=\"center\"> <thead><tr> <th style=\"width:20%\">Book Title</th> "	// first table 
