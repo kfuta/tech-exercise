@@ -37,11 +37,14 @@ public class Activity extends HttpServlet {
             + "<header><h1 align=\"center\">&#128218; " + title + " &#128218;</h1></header>\n"	// first header
             + "<nav> <a href=/webproject-techexercise/Library class=mainNav>Library</a> <br>"	// navigation links; remember to change to 4830- when you deploy
             + "<a href=/webproject-techexercise/Shelves class=mainNav>Shelves</a> <br> "
-            + "<a href=/webproject-techexercise/Activity class=mainNav>Activity</a> <br></nav>"
-            + "<h2 align=\"center\">" + tableName1 + "</h2>\n");	// first table name
-      out.println("<table class=\"center\"> <tr> <th style=\"width:20%\">Book Title</th> "	// first table
+            + "<a href=/webproject-techexercise/Activity class=mainNav>Activity</a> <br></nav>");
+      out.println("<div align=\"center\"><a href=/webproject-techexercise/AddActivity.html class=otherLink>Add Activity</a>" // other links
+              + "&emsp;" + "<a href=/webproject-techexercise/FIX.html class=otherLink>Edit Activity</a>" + "&emsp;"
+              + "<a href=/webproject-techexercise/FIX.html class=otherLink>Remove Activity</a></div>");
+      out.println("<h2 align=\"center\">" + tableName1 + "</h2>\n");	// first table name
+      out.println("<table class=\"center\"> <thead><tr> <th style=\"width:20%\">Book Title</th> "	// first table
       		+ "<th style=\"width:20%\">Book Author</th> <th style=\"width:20%\">Date Started</th> "
-      		+ "<th style=\"width:20%\">Activity Date</th> <th style=\"width:20%\">Pages Read</th></tr>");
+      		+ "<th style=\"width:20%\">Activity Date</th> <th style=\"width:20%\">Pages Read</th></tr></thead><tbody>");
 
       
       Connection connection = null;
@@ -69,7 +72,7 @@ public class Activity extends HttpServlet {
             out.println("<td>" + bookActivityDate + "</td>");
             out.println("<td>" + bookPagesRead + "</td></tr>");
          }
-         out.println("</table>");
+         out.println("</tbody></table>");
          rs.close();
          preparedStatement.close();
          

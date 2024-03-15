@@ -43,9 +43,9 @@ public class Library extends HttpServlet {
       		+ "<a href=/webproject-techexercise/FIX.html class=otherLink>Remove from Library</a></div>");
       out.println("<h2 align=\"center\">" + tableName1 + "</h2>\n");	// first table name
 
-      out.println("<table class=\"center\"> <tr> <th style=\"width:20%\">Book Title</th> "	// first table
+      out.println("<table class=\"center\"> <thead><tr> <th style=\"width:20%\">Book Title</th> "	// first table 
       		+ "<th style=\"width:20%\">Book Author</th> <th style=\"width:20%\">Genre</th> "
-      		+ "<th style=\"width:20%\">Year First Published</th> <th style=\"width:20%\">Book Page Count</th></tr>");
+      		+ "<th style=\"width:20%\">Year First Published</th> <th style=\"width:20%\">Book Page Count</th></tr></thead><tbody>");
 
       
       Connection connection = null;
@@ -73,7 +73,7 @@ public class Library extends HttpServlet {
             out.println("<td>" + bookYearFirstPublished + "</td>");
             out.println("<td>" + bookPageCt + "</td></tr>");
          }
-         out.println("</table>");
+         out.println("</tbody></table>");
          rs.close();
          preparedStatement.close();
          

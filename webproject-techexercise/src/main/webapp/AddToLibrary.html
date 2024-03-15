@@ -18,15 +18,19 @@
 <section>
 	<form action="AddToLibrary" method="POST">
 		Add a book to your library. All fields are required. <br /><br />
-		Book Title (less than 100 characters): <input type="text" name="titleInput" maxlength="100" required> <br />
-		Book Author (less than 50 characters): <input type="text" name="authorInput" maxlength="50" required> <br />
-		Genre (less than 50 characters): <input type="text" name="genreInput" maxlength="50" required> <br />
-		Year First Published (positive integer): <input type="number" name="yearFirstPublishedInput" maxlength="10" min="1" required> <br />
-		Book Page Count (positive integer): <input type="number" name="pageCountInput" maxlength="5" min="1" required> <br /><br />
+		<label for="titleInput">Book Title (less than 100 characters): </label>
+			<input type="text" name="titleInput" maxlength="100" required> <br />
+		<label for="authorInput">Book Author (less than 50 characters):</label>
+			<input type="text" name="authorInput" maxlength="50" required> <br />
+		<label for="genreInput">Genre (less than 50 characters):</label> 
+			<input type="text" name="genreInput" maxlength="50" required> <br />
+		<label for="yearFirstPublishedInput">Year First Published (positive integer):</label> 
+			<input type="number" name="yearFirstPublishedInput" maxlength="10" min="1" required> <br />
+		<label for="pageCountInput">Book Page Count (positive integer):</label> 
+			<input type="number" name="pageCountInput" maxlength="5" min="1" required> <br /><br />
 		
 		<input type="submit" value="Add to Library" />
 	</form>
-	
 </section>
 </body>
 </html>
