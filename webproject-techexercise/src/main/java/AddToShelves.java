@@ -54,7 +54,7 @@ public class AddToShelves extends HttpServlet {
       PrintWriter out = response.getWriter();
       //
       String title = "Reading Tracker";
-      String header = "Library Insertion Complete!";
+      String header = "Shelf Insertion Complete!";
       String docType = "<!doctype html public \"-//w3c//dtd html 4.0 transitional//en\">\n"; 
       out.println(docType + "<html>\n" + "<head><title>" + title + "</title>\n"); // start of head; start and end of title
       out.println("<link rel=\"stylesheet\" href=\"style.css\">");	// stylesheet
@@ -64,11 +64,8 @@ public class AddToShelves extends HttpServlet {
             + "<nav> <a href=/webproject-techexercise/Library class=mainNav>Library</a> <br>"	// navigation links
             + "<a href=/webproject-techexercise/Shelves class=mainNav>Shelves</a> <br> "
             + "<a href=/webproject-techexercise/Activity class=mainNav>Activity</a> <br></nav>");
-      out.println("<div align=\"center\"><a href=/webproject-techexercise/AddToLibrary.html class=otherLink>Add to Library</a>" // other links
-      		+ "&emsp;" + "<a href=/webproject-techexercise/FIX.html class=otherLink>Edit Library</a>" + "&emsp;"
-      		+ "<a href=/webproject-techexercise/FIX.html class=otherLink>Remove from Library</a></div>");
       out.println("<h2 align=\"center\">" + header + "</h2>\n"	// header
-      		+ "<section>You added the following book to your library: <br><section>"	
+      		+ "<section>You added the following book to your shelves: <br><section>"	
             + "<ul>\n" + // list
             "  <li><b>Book Title</b>: " + addTitle + "\n" + 
             "  <li><b>Book Author</b>: " + addAuthor + "\n" + 

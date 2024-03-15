@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>Reading Tracker</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<h1 align=center>&#128218; Reading Tracker &#128218;</h1>
+</header>
+
+<nav>
+<a href=/webproject-techexercise/Library class=mainNav>Library</a> <br>
+<a href=/webproject-techexercise/Shelves class=mainNav>Shelves</a> <br>
+<a href=/webproject-techexercise/Activity class=mainNav>Activity</a> <br><br>        
+</nav>
+
+<h2 align=center>Add Activity</h2>
+<section>
+	<form action="AddActivity" method="POST">
+		Add an activity. All fields are required. <em>Note that you cannot add an activity unless the book for which it is defined already exists in your library and shelves.</em><br /><br />
+		<label for="titleInput">Book Title (less than 100 characters): </label>
+			<input type="text" name="titleInput" maxlength="100" required> <br />
+		<label for="authorInput">Book Author (less than 50 characters):</label>
+			<input type="text" name="authorInput" maxlength="50" required> <br />
+		<label for="dateStartedInput">Date Started (less than 15 characters):</label> 
+			<input type="text" name="dateStartedInput" maxlength="15" required> <br />
+		<label for="activityDateInput">Activity Date (less than 15 characters):</label> 
+			<input type="text" name="activityDateInput" maxlength="15" required> <br />
+		<label for="pagesReadInput">Pages Read (positive integer):</label> 
+			<input type="number" name="pagesReadInput" maxlength="3" min="1" required> <br /><br />
+		
+		<input type="submit" value="Add Activity" />
+	</form>
+</section>
+</body>
+</html>

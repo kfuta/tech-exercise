@@ -1,6 +1,6 @@
 
 /**
- * @file AddToLibrary.java
+ * @file AddActivity.java
  */
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -13,23 +13,23 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/AddToLibrary")
-public class AddToLibrary extends HttpServlet {
+@WebServlet("/AddActivity")
+public class AddActivity extends HttpServlet {
    private static final long serialVersionUID = 1L;
 
-   public AddToLibrary() {
+   public AddActivity() {
       super();
    }
 
    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
       String addTitle = request.getParameter("titleInput");
       String addAuthor = request.getParameter("authorInput");
-      String addGenre = request.getParameter("genreInput");
-      int addYearFirstPublished = Integer.parseInt(request.getParameter("yearFirstPublishedInput")); 
-      int addPageCount = Integer.parseInt(request.getParameter("pageCountInput"));
+      String addDateStarted = request.getParameter("dateStartedInput");
+      String addActivityDate = request.getParameter("activityDateInput");
+      int addPagesRead = Integer.parseInt(request.getParameter("pagesReadInput"));
 
       Connection connection = null;
-      String insertSql = " INSERT INTO books (title, author, genre, yearFirstPublished, pageCt) values (?, ?, ?, ?, ?)";
+      String insertSql = " INSERT INTO readingActivity (titleFk2, authorFk2, dateStartedFk, activityDate, pagesRead) values (?, ?, ?, ?, ?)";
 
       try {
          DBConnectionFutakami.getDBConnection();
@@ -37,9 +37,9 @@ public class AddToLibrary extends HttpServlet {
          PreparedStatement preparedStmt = connection.prepareStatement(insertSql);
          preparedStmt.setString(1, addTitle);
          preparedStmt.setString(2, addAuthor);
-         preparedStmt.setString(3, addGenre);
-         preparedStmt.setInt(4, addYearFirstPublished);
-         preparedStmt.setInt(5, addPageCount);
+         preparedStmt.setString(3, addDateStarted);
+         preparedStmt.setString(4, addActivityDate);
+         preparedStmt.setInt(5, addPagesRead);
          preparedStmt.execute();
          connection.close();
       } catch (Exception e) {
@@ -51,7 +51,7 @@ public class AddToLibrary extends HttpServlet {
       PrintWriter out = response.getWriter();
       //
       String title = "Reading Tracker";
-      String header = "Library Insertion Complete!";
+      String header = "Activity Insertion Complete!";
       String docType = "<!doctype html public \"-//w3c//dtd html 4.0 transitional//en\">\n"; 
       out.println(docType + "<html>\n" + "<head><title>" + title + "</title>\n"); // start of head; start and end of title
       out.println("<link rel=\"stylesheet\" href=\"style.css\">");	// stylesheet
@@ -62,13 +62,13 @@ public class AddToLibrary extends HttpServlet {
             + "<a href=/webproject-techexercise/Shelves class=mainNav>Shelves</a> <br> "
             + "<a href=/webproject-techexercise/Activity class=mainNav>Activity</a> <br></nav>");
       out.println("<h2 align=\"center\">" + header + "</h2>\n"	// header
-      		+ "<section>You added the following book to your library: <br><section>"	
+      		+ "<section>You added the following activity: <br><section>"	
             + "<ul>\n" + // list
             "  <li><b>Book Title</b>: " + addTitle + "\n" + 
             "  <li><b>Book Author</b>: " + addAuthor + "\n" + 
-            "  <li><b>Genre</b>: " + addGenre + "\n" + 
-            "  <li><b>Year First Published</b>: " + addYearFirstPublished + "\n" + 
-            "  <li><b>Page Count</b>: " + addPageCount + "\n" + 
+            "  <li><b>Date Started</b>: " + addDateStarted + "\n" + 
+            "  <li><b>Activity Date</b>: " + addActivityDate + "\n" + 
+            "  <li><b>Pages Read</b>: " + addPagesRead + "\n" +
             "</ul>\n");
 
       out.println("</body></html>");
