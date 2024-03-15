@@ -1,6 +1,6 @@
 
 /**
- * @file EditActivityResult.java
+ * @file EditShelvesResult.java
  */
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -13,35 +13,45 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/EditActivityResult")
-public class EditActivityResult extends HttpServlet {
+@WebServlet("/EditShelvesResult")
+public class EditShelvesResult extends HttpServlet {
    private static final long serialVersionUID = 1L;
 
-   public EditActivityResult() {
+   public EditShelvesResult() {
       super();
    }
 
    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-      int selectedActivity = Integer.parseInt(request.getParameter("selectActivity"));
-	  String addTitle = request.getParameter("titleInput");
+      String selectedBookPk = request.getParameter("selectBook");
+      String addTitle = request.getParameter("titleInput");
       String addAuthor = request.getParameter("authorInput");
+      String addShelfType = request.getParameter("shelfTypeInput");
       String addDateStarted = request.getParameter("dateStartedInput");
-      String addActivityDate = request.getParameter("activityDateInput");
-      int addPagesRead = Integer.parseInt(request.getParameter("pagesReadInput"));
+      String addDateFinished = request.getParameter("dateFinishedInput"); 
+      int addRating = Integer.parseInt(request.getParameter("ratingInput"));
 
+      String[] selectedBookFields;
+      selectedBookFields = selectedBookPk.split(",");
+      String selectedTitle =  selectedBookFields[0];
+      String selectedAuthor =  selectedBookFields[1];
+      String selectedDateStarted =  selectedBookFields[2];
+    		  
       Connection connection = null;
-      String insertSql = " UPDATE readingActivity SET titleFk2 = ?, authorFk2 = ?, dateStartedFk = ?, activityDate = ?, pagesRead = ? WHERE activityId = ?";
-
+      String insertSql = " UPDATE bookInstance SET titleFk = ?, authorFk = ?, shelfType = ?, dateStarted = ?, dateCompleted = ?, "
+      		+ "rating = ? WHERE titleFk = ? AND authorFk = ? AND dateStarted = ?";
       try {
          DBConnectionFutakami.getDBConnection();
          connection = DBConnectionFutakami.connection;
          PreparedStatement preparedStmt = connection.prepareStatement(insertSql);
          preparedStmt.setString(1, addTitle);
          preparedStmt.setString(2, addAuthor);
-         preparedStmt.setString(3, addDateStarted);
-         preparedStmt.setString(4, addActivityDate);
-         preparedStmt.setInt(5, addPagesRead);
-         preparedStmt.setInt(6, selectedActivity);
+         preparedStmt.setString(3, addShelfType);
+         preparedStmt.setString(4, addDateStarted);
+         preparedStmt.setString(5, addDateFinished);
+         preparedStmt.setInt(6, addRating);
+         preparedStmt.setString(7, selectedTitle);
+         preparedStmt.setString(8, selectedAuthor);
+         preparedStmt.setString(9, selectedDateStarted);
          preparedStmt.execute();
          connection.close();
       } catch (Exception e) {
@@ -53,7 +63,7 @@ public class EditActivityResult extends HttpServlet {
       PrintWriter out = response.getWriter();
       //
       String title = "Reading Tracker";
-      String header = "Activity Edit Complete!";
+      String header = "Shelf Edit Complete!";
       String docType = "<!doctype html public \"-//w3c//dtd html 4.0 transitional//en\">\n"; 
       out.println(docType + "<html>\n" + "<head><title>" + title + "</title>\n"); // start of head; start and end of title
       out.println("<link rel=\"stylesheet\" href=\"style.css\">");	// stylesheet
@@ -64,14 +74,16 @@ public class EditActivityResult extends HttpServlet {
             + "<a href=/webproject-techexercise/Shelves class=mainNav>Shelves</a> <br> "
             + "<a href=/webproject-techexercise/Activity class=mainNav>Activity</a> <br></nav>");
       out.println("<h2 align=\"center\">" + header + "</h2>\n"	// header
-      		+ "<section>You changed activity " + selectedActivity + " to: <br><section>"	
-            + "<ul>\n" + // list
-            "  <li><b>Book Title</b>: " + addTitle + "\n" + 
-            "  <li><b>Book Author</b>: " + addAuthor + "\n" + 
-            "  <li><b>Date Started</b>: " + addDateStarted + "\n" + 
-            "  <li><b>Activity Date</b>: " + addActivityDate + "\n" + 
-            "  <li><b>Pages Read</b>: " + addPagesRead + "\n" +
-            "</ul>\n");
+      		+ "<section>You changed the book <i>" + selectedTitle + "</i> written by "
+      		+ selectedAuthor + " and started " + selectedDateStarted + " to: <br><section>"	
+      	    + "<ul>\n" + // list
+      	    "  <li><b>Book Title</b>: " + addTitle + "\n" + 
+      	    "  <li><b>Book Author</b>: " + addAuthor + "\n" + 
+      	    "  <li><b>Shelf</b>: " + addShelfType + "\n" + 
+      	    "  <li><b>Date Started</b>: " + addDateStarted + "\n" + 
+      	    "  <li><b>Date Completed</b>: " + addDateFinished + "\n" + 
+      	    "  <li><b>Rating</b>: " + addRating + "\n" +
+      	    "</ul>\n");
 
       out.println("</body></html>");
    }

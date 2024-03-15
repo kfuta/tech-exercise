@@ -41,7 +41,7 @@ public class Shelves extends HttpServlet {
             + "<a href=/webproject-techexercise/Shelves class=mainNav>Shelves</a><br>"
             + "<a href=/webproject-techexercise/Activity class=mainNav>Activity</a> <br></nav>");
       out.println("<div align=\"center\"><a href=/webproject-techexercise/AddToShelves.html class=otherLink>Add to Shelves</a>" // other links
-            + "&emsp;" + "<a href=/webproject-techexercise/FIX.html class=otherLink>Edit Shelves</a>" + "&emsp;"
+            + "&emsp;" + "<a href=/webproject-techexercise/EditShelves class=otherLink>Edit Shelves</a>" + "&emsp;"
             + "<a href=/webproject-techexercise/RemoveFromShelves.html class=otherLink>Remove from Shelves</a></div>");
      
       Connection connection = null;
