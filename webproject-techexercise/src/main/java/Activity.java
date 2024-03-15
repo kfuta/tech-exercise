@@ -35,11 +35,11 @@ public class Activity extends HttpServlet {
       out.println("</head>\n" 	// end of head
             + "<body>\n" 	// start of body
             + "<header><h1 align=\"center\">&#128218; " + title + " &#128218;</h1></header>\n"	// first header
-            + "<nav> <a href=/webproject-techexercise/Library class=mainNav>Library</a> <br>"	// navigation links; remember to change to 4830- when you deploy
+            + "<nav> <a href=/webproject-techexercise/Library class=mainNav>Library</a> <br>"	// navigation links
             + "<a href=/webproject-techexercise/Shelves class=mainNav>Shelves</a> <br> "
             + "<a href=/webproject-techexercise/Activity class=mainNav>Activity</a> <br></nav>");
       out.println("<div align=\"center\"><a href=/webproject-techexercise/AddActivity.html class=otherLink>Add Activity</a>" // other links
-              + "&emsp;" + "<a href=/webproject-techexercise/FIX.html class=otherLink>Edit Activity</a>" + "&emsp;"
+              + "&emsp;" + "<a href=/webproject-techexercise/EditActivity class=otherLink>Edit Activity</a>" + "&emsp;"
               + "<a href=/webproject-techexercise/RemoveActivity.html class=otherLink>Remove Activity</a></div>");
       out.println("<h2 align=\"center\">" + tableName1 + "</h2>\n");	// first table name
       out.println("<table class=\"center\"> <thead><tr> <th style=\"width:16.66%\">Activity Number</th> <th style=\"width:16.66%\">Book Title</th> "	// first table

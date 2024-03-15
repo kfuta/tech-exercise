@@ -18,8 +18,8 @@
 <section>
 	<form action="RemoveActivity" method="POST">
 		Remove an activity. All fields are required.<br /><br />
-		<label for="activityIdInput">Activity Number (positive integer):</label> 
-			<input type="number" name="activityIdInput" maxlength="5" min="1" required> <br /><br />		
+		<label for="activityIdInput">Activity Number (positive integer less than 1000):</label> 
+			<input type="number" name="activityIdInput" min="1" max="999" required> <br /><br />		
 		<input type="submit" value="Remove Activity" />
 	</form>
 </section>

@@ -24,10 +24,10 @@
 			<input type="text" name="authorInput" maxlength="50" required> <br />
 		<label for="genreInput">Genre (less than 50 characters):</label> 
 			<input type="text" name="genreInput" maxlength="50" required> <br />
-		<label for="yearFirstPublishedInput">Year First Published (positive integer):</label> 
-			<input type="number" name="yearFirstPublishedInput" maxlength="10" min="1" required> <br />
-		<label for="pageCountInput">Book Page Count (positive integer):</label> 
-			<input type="number" name="pageCountInput" maxlength="5" min="1" required> <br /><br />
+		<label for="yearFirstPublishedInput">Year First Published (positive integer less than 2025):</label> 
+			<input type="number" name="yearFirstPublishedInput" min="1" max="2024" required> <br />
+		<label for="pageCountInput">Book Page Count (positive integer less than 10000):</label> 
+			<input type="number" name="pageCountInput" min="1" max="9999" required> <br /><br />
 		
 		<input type="submit" value="Add to Library" />
 	</form>

@@ -26,8 +26,8 @@
 			<input type="text" name="dateStartedInput" maxlength="15" required> <br />
 		<label for="activityDateInput">Activity Date (less than 15 characters):</label> 
 			<input type="text" name="activityDateInput" maxlength="15" required> <br />
-		<label for="pagesReadInput">Pages Read (positive integer):</label> 
-			<input type="number" name="pagesReadInput" maxlength="3" min="1" required> <br /><br />
+		<label for="pagesReadInput">Pages Read (positive integer less than 1000):</label> 
+			<input type="number" name="pagesReadInput" min="1" max="999" required> <br /><br />
 		
 		<input type="submit" value="Add Activity" />
 	</form>
