@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>Reading Tracker</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<h1 align=center>&#128218; Reading Tracker &#128218;</h1>
+</header>
+
+<nav>
+<a href=/webproject-techexercise/Library class=mainNav>Library</a> <br>
+<a href=/webproject-techexercise/Shelves class=mainNav>Shelves</a> <br>
+<a href=/webproject-techexercise/Activity class=mainNav>Activity</a> <br><br>        
+</nav>
+
+<h2 align=center>Add to Shelves</h2>
+<section>
+	<form action="AddToShelves" method="POST">
+		Add a book to your shelves. All fields are required. <em>Note that you cannot add a book to your shelves unless the book already exists in your library.</em><br /><br />
+		<label for="titleInput">Book Title (less than 100 characters): </label>
+			<input type="text" name="titleInput" maxlength="100" required> <br />
+		<label for="authorInput">Book Author (less than 50 characters):</label>
+			<input type="text" name="authorInput" maxlength="50" required> <br />
+		<label for="shelfTypeInput">Shelf Type:</label>  
+			  	<select id="shelves" name="shelfTypeInput" required>
+    				<option value="To Read">To Read</option>
+    				<option value="Currently Reading">Currently Reading</option>
+    				<option value="Finished Reading">Finished Reading</option>
+  				</select><br />
+		<label for="dateStartedInput">Date Started (less than 15 characters):</label> 
+			<input type="text" name="dateStartedInput" maxlength="15" required> <br />
+		<label for="dateFinishedInput">Date Completed (less than 15 characters):</label> 
+			<input type="text" name="dateFinishedInput" maxlength="15" required> <br />
+		<label for="ratingInput">Rating (integers 0-5):</label> 
+			<input type="number" name="ratingInput" maxlength="1" min="0" max="5" required> <br /><br />
+		
+		<input type="submit" value="Add to Shelves" />
+	</form>
+</section>
+</body>
+</html>
