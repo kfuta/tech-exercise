@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>Reading Tracker</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<h1 align=center>&#128218; Reading Tracker &#128218;</h1>
+</header>
+
+<nav>
+<a href=/webproject-techexercise/Library class=mainNav>Library</a> <br>
+<a href=/webproject-techexercise/Shelves class=mainNav>Shelves</a> <br>
+<a href=/webproject-techexercise/Activity class=mainNav>Activity</a> <br><br>        
+</nav>
+
+<h2 align=center>Remove Activity</h2>
+<section>
+	<form action="RemoveActivity" method="POST">
+		Remove an activity. All fields are required.<br /><br />
+		<label for="activityIdInput">Activity Number (positive integer):</label> 
+			<input type="number" name="activityIdInput" maxlength="5" min="1" required> <br /><br />		
+		<input type="submit" value="Remove Activity" />
+	</form>
+</section>
+</body>
+</html>

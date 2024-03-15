@@ -40,11 +40,11 @@ public class Activity extends HttpServlet {
             + "<a href=/webproject-techexercise/Activity class=mainNav>Activity</a> <br></nav>");
       out.println("<div align=\"center\"><a href=/webproject-techexercise/AddActivity.html class=otherLink>Add Activity</a>" // other links
               + "&emsp;" + "<a href=/webproject-techexercise/FIX.html class=otherLink>Edit Activity</a>" + "&emsp;"
-              + "<a href=/webproject-techexercise/FIX.html class=otherLink>Remove Activity</a></div>");
+              + "<a href=/webproject-techexercise/RemoveActivity.html class=otherLink>Remove Activity</a></div>");
       out.println("<h2 align=\"center\">" + tableName1 + "</h2>\n");	// first table name
-      out.println("<table class=\"center\"> <thead><tr> <th style=\"width:20%\">Book Title</th> "	// first table
-      		+ "<th style=\"width:20%\">Book Author</th> <th style=\"width:20%\">Date Started</th> "
-      		+ "<th style=\"width:20%\">Activity Date</th> <th style=\"width:20%\">Pages Read</th></tr></thead><tbody>");
+      out.println("<table class=\"center\"> <thead><tr> <th style=\"width:16.66%\">Activity Number</th> <th style=\"width:16.66%\">Book Title</th> "	// first table
+      		+ "<th style=\"width:16.66%\">Book Author</th> <th style=\"width:16.66%\">Date Started</th> "
+      		+ "<th style=\"width:16.66%\">Activity Date</th> <th style=\"width:16.66%\">Pages Read</th></tr></thead><tbody>");
 
       
       Connection connection = null;
@@ -60,13 +60,15 @@ public class Activity extends HttpServlet {
          ResultSet rs = preparedStatement.executeQuery();
 
          while (rs.next()) {
+        	int activityId = rs.getInt("activityId");
             String bookTitle = rs.getString("titleFk2").trim();
             String bookAuthor = rs.getString("authorFk2").trim();
             String bookDateStarted = rs.getString("dateStartedFk").trim();
             String bookActivityDate = rs.getString("activityDate").trim();
             int bookPagesRead = rs.getInt("pagesRead");
-
-            out.println("<tr><td>" + bookTitle + "</td>");
+            
+            out.println("<tr><td>" + activityId + "</td>");
+            out.println("<td>" + bookTitle + "</td>");
             out.println("<td>" + bookAuthor + "</td>");
             out.println("<td>" + bookDateStarted + "</td>");
             out.println("<td>" + bookActivityDate + "</td>");
