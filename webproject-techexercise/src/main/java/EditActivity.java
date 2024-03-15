@@ -70,7 +70,8 @@ public class EditActivity extends HttpServlet {
 						+ ", <b>Date Started:</b> " + bookDateStarted + ", <b>Activity Date:</b> " + bookActivityDate
 						+ ", <b>Pages Read:</b> " + bookPagesRead + "</label><br>");
 			}
-			out.println("<br /><br />Enter the new activity information. All fields are required.<br /><br />");
+			out.println("<br /><br />Enter the new activity information. All fields are required. The book title, book author, and date started"
+					+ " must already exist as a group within your shelves.<br /><br />");
 			out.println("<label for=\"titleInput\">Book Title (less than 100 characters): </label>");
 			out.println("<input type=\"text\" name=\"titleInput\" maxlength=\"100\" required> <br />");
 			out.println("<label for=\"authorInput\">Book Author (less than 50 characters):</label>");

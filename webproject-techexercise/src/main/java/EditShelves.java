@@ -73,7 +73,8 @@ public class EditShelves extends HttpServlet {
 						+ ", <b>Date Started:</b> " + bookDateStarted + ", <b>Date Completed:</b> " + bookDateCompleted
 						+ ", <b>Book Rating:</b> " + bookRating + "</label><br>");
 			}
-			out.println("<br /><br />Enter the new information for the book in your shelves. All fields are required.<br /><br />");
+			out.println("<br /><br />Enter the new information for the book in your shelves. All fields are required. The book"
+					+ " title and book author must already exist as a group within your library.<br /><br />");
 			out.println("<label for=\"titleInput\">Book Title (less than 100 characters): </label>");
 			out.println("<input type=\"text\" name=\"titleInput\" maxlength=\"100\" required> <br />");
 			out.println("<label for=\"authorInput\">Book Author (less than 50 characters):</label>");
@@ -82,8 +83,7 @@ public class EditShelves extends HttpServlet {
 			out.println("<select id=\"shelves\" name=\"shelfTypeInput\" required>");
 			out.println("<option value=\"To Read\">To Read</option>");
 			out.println("<option value=\"Currently Reading\">Currently Reading</option>");			
-			out.println("<option value=\"Finished Reading\">Finished Reading</option>");
-			
+			out.println("<option value=\"Finished Reading\">Finished Reading</option>");		
 			out.println("</select><br />");
 			out.println("<label for=\"dateStartedInput\">Date Started (less than 15 characters):</label>");
 			out.println("<input type=\"text\" name=\"dateStartedInput\" maxlength=\"15\" required> <br />");
