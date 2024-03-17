@@ -37,7 +37,7 @@ public class Shelves extends HttpServlet {
       out.println("</head>\n" 	// end of head
             + "<body>\n" 	// start of body
             + "<header><h1 align=\"center\">&#128218; " + title + " &#128218;</h1></header>\n"	// first header
-            + "<nav> <a href=/webproject-techexercise/Library class=mainNav>Library</a> <br>"	// navigation links; remember to change to 4830- when you deploy
+            + "<nav> <a href=/webproject-techexercise/Library class=mainNav>Library</a> <br>"	// navigation links
             + "<a href=/webproject-techexercise/Shelves class=mainNav>Shelves</a><br>"
             + "<a href=/webproject-techexercise/Activity class=mainNav>Activity</a> <br></nav>");
       out.println("<div align=\"center\"><a href=/webproject-techexercise/AddToShelves.html class=otherLink>Add to Shelves</a>" // other links
